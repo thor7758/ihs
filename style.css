@@ -1,0 +1,1226 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-image: linear-gradient(90deg, #1d1d4a, #0f500f);
+}
+
+
+.sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hide {
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 0 16px;
+    min-height: 8vh;
+    z-index: 6;
+    height: 80px;
+
+}
+
+
+.nav-links {
+    display: flex;
+    width: 35%;
+    position: fixed;
+    right: 0px;
+    height: 100vh;
+    top: 7.9vh;
+    flex-direction: column;
+    align-items: center;
+    /*transform: translateX gør at .nav-links starter ude fra skærmen*/
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    overflow: hidden;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+
+
+.nav-links li {
+    list-style: none;
+    padding: 45px;
+    opacity: 0;
+}
+
+
+
+.nav-links button {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+
+
+.burger {
+    display: block;
+    cursor: pointer;
+}
+
+
+
+.burger div {
+    width: 23px;
+    height: 4px;
+    background-color: #ffffff;
+    margin: 5px 5px;
+    transition: all 0.5s ease;
+}
+
+
+
+/*toggle kommer fra class i JS*/
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-6px, -7px);
+}
+
+
+
+
+
+/* .nav-active er klassen som bliver "toggled" i JS som gør at nav-links kan translate ind ind på skærmen igen fra 100% */
+.nav-active {
+    transform: translateX(0%);
+}
+
+
+
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+.filter:hover {
+    background: black;
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+
+.filter {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    width: 170px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5em;
+    filter: drop-shadow(-7px 5px 12px #353839);
+
+}
+
+
+i {
+    margin: auto;
+}
+
+
+
+#ihslogo a {
+    background: url(ihslogo.svg);
+    background-size: cover;
+    display: flex;
+    position: relative;
+    height: 80px;
+    width: 140px;
+    left: 0;
+    z-index: 6;
+
+}
+
+
+#splashbaggrund {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(IHSbaggrund.png);
+    background-size: cover;
+    background-position: 50% 90%;
+    max-width: none;
+    min-width: 70%;
+    top: -10;
+    position: relative;
+
+}
+
+#splashmobil {
+    display: none;
+}
+
+
+#splash #splashtilmeld {
+    border: 2px solid white;
+    display: flex;
+    position: relative;
+    color: white;
+    padding: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 2em;
+    top: 70%;
+    right: 0;
+    margin: 0px auto;
+    z-index: 3;
+    width: 15.5%;
+    text-align: center;
+}
+
+
+#splash #splashtilmeld a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    z-index: 4;
+}
+
+#splash #splashtilmeld a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+#splash #splashtilmeld a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+#tooltip img,
+#tooltip2 img,
+#tooltip3 img,
+#tooltip4 img,
+#tooltip5 img,
+#tooltip6 img {
+    width: 2%;
+    height: auto;
+    z-index: 2;
+}
+
+#tooltip img {
+    position: absolute;
+    top: 20vh;
+    left: 18vw;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+
+}
+
+#tooltip2 img {
+    position: absolute;
+    left: 50vw;
+    top: 23vh;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+
+}
+
+#tooltip2 .tooltiptext {
+    top: 25vh;
+    left: 52vw;
+
+}
+
+#tooltip3 img {
+    position: absolute;
+    top: 52vh;
+    left: 74vw;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+
+}
+
+#tooltip3 .tooltiptext {
+    top: 54vh;
+    left: 76vw;
+}
+
+#tooltip4 img {
+    position: absolute;
+    top: 51vh;
+    left: 66vw;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+
+}
+
+#tooltip4 .tooltiptext {
+    top: 40vh;
+    left: 67vw;
+}
+
+#tooltip5 img {
+    position: absolute;
+    top: 45vh;
+    left: 30vw;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+#tooltip5 .tooltiptext {
+    top: 49vh;
+    left: 24vw;
+}
+
+#tooltip6 img {
+    position: absolute;
+    top: 24vh;
+    left: 72vw;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+#tooltip6 .tooltiptext {
+    top: 27vh;
+    left: 74vw;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.42);
+    color: #fff;
+    text-align: center;
+    border: 2px solid white;
+    padding: 5px 0;
+    position: absolute;
+    top: 24vh;
+    left: 20vw;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#tooltip2:hover .tooltiptext {
+    visibility: visible;
+}
+
+#tooltip3:hover .tooltiptext {
+    visibility: visible;
+}
+
+#tooltip4:hover .tooltiptext {
+    visibility: visible;
+}
+
+#tooltip5:hover .tooltiptext {
+    visibility: visible;
+}
+
+#tooltip6:hover .tooltiptext {
+    visibility: visible;
+}
+
+#socialmedia .fa {
+    padding: 20px;
+    font-size: 2em;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    color: white;
+}
+
+#socialmedia {
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    top: 40%;
+}
+
+#socialmedia .fa:hover {
+    opacity: 0.8;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        border-radius: 100px;
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        border-radius: 100px;
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        border-radius: 100px;
+    }
+}
+
+#infofront .sectionwrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 40px;
+
+
+}
+
+#infoquote {
+    display: flex;
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    flex-basis: 400px;
+    flex-grow: 1;
+    margin-right: 80px;
+    margin-top: 80px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+}
+
+#videos {
+    height: 400px;
+    width: 20%;
+    flex-basis: 500px;
+    flex-grow: 2.5;
+
+}
+
+
+#ihslogoskiller {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#ihslogoskiller img {
+    width: 20%;
+    height: auto;
+
+}
+
+
+
+/*************** IMAGE HOVER ***************/
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background: #222;
+    margin: auto;
+}
+
+.container .clip {
+    position: absolute;
+    top: 40;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.container .clip.clip1 {
+    background: url(jeremy-bishop-_CFv3bntQlQ-unsplash.jpg);
+    background-size: cover;
+    background-color: #0378a6;
+    background-blend-mode: overlay;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+    background-position: 70% 50%;
+
+}
+
+.container .clip.clip2 {
+    background: url(tommy-boudreau-diO0a_ZEiEE-unsplash.jpg);
+    background-size: cover;
+    background-color: #038c4c;
+    background-blend-mode: overlay;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    background-position: 40% 50%;
+}
+
+.container:hover .clip {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.container .clip:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.container .clip .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    padding: 20px;
+    background-color: #000000;
+    opacity: 0;
+    transition: 0.5s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container .clip:hover .content {
+    bottom: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+.container .clip:hover #infobox {
+    display: none;
+}
+
+.container .clip:hover #infobox2 {
+    display: none;
+}
+
+
+#infobox:hover {
+    visibility: hidden;
+}
+
+#infobox {
+    text-align: center;
+    top: 40%;
+    left: 15%;
+    position: relative;
+    color: white;
+    padding: 0;
+    border: 2px solid white;
+    width: 20%;
+    height: 8vh;
+    font-family: 'Poppins', sans-serif;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+#infobox2 {
+    text-align: center;
+    top: 40%;
+    left: 65%;
+    position: relative;
+    color: white;
+    padding: 0;
+    border: 2px solid white;
+    width: 20%;
+    height: 8vh;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+#infobox h2 {
+    text-align: center;
+}
+
+#ophold a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+/***** TILMELDING *****/
+
+#kontakt .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#container {
+    padding: 20px;
+    width: 100%;
+    margin: auto;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 20%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+}
+
+#tilmeldingknap {
+    width: 100%;
+    height: 10%;
+    font-size: 2em;
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 20px;
+    top: 20vh;
+    position: relative;
+
+}
+
+#tilmeldingknap i {
+    margin: auto;
+}
+
+
+/******** FOOTER *****/
+
+footer {
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    bottom: 0;
+    margin-top: 40px;
+    position: relative;
+    line-height: normal;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    padding: 40px;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: 80px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.overskrift {
+    margin: 0 auto;
+    width: 80vw
+}
+
+.retter {
+    margin: 0 auto;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.ret img {
+    width: 100%;
+    height: 250px;
+}
+
+.ret h2 {
+    color: white;
+    height: 60px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ret p {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter_nav {
+    display: flex;
+    top: 5vh;
+    position: relative;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+.filter_nav:hover {}
+
+.filter_nav h3 {
+    margin-right: 12px;
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter_nav h3:hover {
+    text-decoration-line: underline;
+    opacity: 0.8;
+}
+
+.ret {
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 10px;
+    overflow-wrap: break;
+    font-size: 0.9em;
+}
+
+.ret h2 {
+    overflow-wrap: break-word;
+    padding: 10px;
+    padding-left: 0;
+}
+
+.valgt {
+    text-decoration-line: underline;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.29);
+}
+
+.valgt h3 {
+    color: black;
+}
+
+
+
+#singleviewz .ret {
+    cursor: pointer;
+    margin: 10%;
+    margin-left: 15%;
+    margin-top: 5%;
+    position: relative;
+    padding: 20px;
+
+
+}
+
+#singleviewz {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    margin: 10%;
+
+}
+
+#singleviewz img {
+    width: 50%;
+    height: auto;
+    flex-basis: 200px;
+    flex-grow: 1;
+    max-height: 60vh;
+
+}
+
+#singleviewz #short_text {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+
+}
+
+
+
+#singleviewz .rightcol {
+    flex-direction: column;
+    display: flex;
+    flex-basis: 400px;
+    padding: 20px;
+    flex-grow: 3;
+}
+
+    {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#singleviewz p {
+    font-size: 1.2em;
+}
+
+#singleviewz h2 {
+    font-size: 1.8em;
+}
+
+#retz .ret:hover p,
+#retz .ret:hover h2,
+#retz .ret:hover {
+    opacity: 1;
+    color: black;
+    background-color: white;
+}
+
+#singleviewz #splashtilmeld a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    z-index: 4;
+    text-align: center;
+    border: 2px solid white;
+    margin: 10px;
+    justify-content: flex-end;
+    bottom: 0;
+    font-size: 1em;
+
+}
+
+#singleviewz #splashtilmeld a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+#singleviewz #splashtilmeld a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+
+
+#omihser {
+    margin-top: 15%;
+    margin-bottom: 20%;
+    overflow-y: hidden;
+}
+
+#omihser .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#omihser .klikker,
+#omihser .klikker2,
+#omihser .klikker3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 300px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+}
+
+
+#omihser a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    z-index: 4;
+    text-align: center;
+    border: 2px solid white;
+    font-size: 2em;
+    margin: 0 auto;
+
+}
+
+#omihser a:hover {
+    text-decoration-line: underline;
+}
+
+
+
+.fas {
+    padding-bottom: 40px;
+    color: white;
+    font-size: 4em;
+}
+
+
+#map {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 400px;
+    flex-grow: 1;
+}
+
+
+#kontakter {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: row;
+    margin: 16%;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+
+#textfelt label {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#textfelt .container {
+    width: 30vw;
+    padding: 20px;
+    background: none;
+    flex-basis: 800px;
+    padding-top: 0;
+    flex-grow: 2;
+    margin: 0 auto;
+}
+
+#textfelt h3 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    margin-top: 10px;
+}
+
+#kontaktikoner {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 300px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+    justify-content: space-around;
+
+}
+
+#kontaktikoner p {
+    font-size: 2em;
+    margin-top: 0;
+}
+
+#socialmediakon {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+}
+
+#socialmediakon .fa {
+    padding: 20px;
+    font-size: 2em;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    color: white;
+}
+
+#priser {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 16%;
+    margin-top: 4%;
+    padding: 10px;
+}
+
+#priser h2 {
+    margin: 0;
+}
+
+#rejs,
+#indmeldelse,
+#forsikring,
+#kortkurs {
+    border: 2px solid white;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 0;
+}
+
+#priser #splashtilmeld a {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    justify-content: center;
+}
+
+#priser #splashtilmeld {
+    justify-content: center;
+    display: flex;
+}
+
+
+#opholds {
+    margin-top: 15%;
+    margin-bottom: 20%;
+    overflow-y: hidden;
+}
+
+#opholds .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#opholds .klikker,
+#opholds .klikker2,
+#opholds .klikker3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 300px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+}
+
+
+#opholds a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    z-index: 4;
+    text-align: center;
+    border: 2px solid white;
+    font-size: 2em;
+    margin: 0 auto;
+
+}
+
+#opholds a:hover {
+    text-decoration-line: underline;
+}
+
+#socialmediafooter {
+    display: flex;
+    font-size: 2em;
+    justify-content: center;
+
+}
+
+footer a {
+    padding: 20px;
+    justify-content: space-around;
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+
+footer p {
+    padding: 20px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+footer h3 {
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/*** MEDIAQUARIES ****/
+
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
+        height: auto;
+    }
+
+    #splashbaggrund {
+        width: 100vw;
+        height: 56.25vh;
+    }
+
+    .navbar a {
+        font-size: 1em;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 1em;
+    }
+
+    .dropdown-content {
+        top: 4vh;
+    }
+
+
+    .column a {
+        text-align: left;
+        font-size: 1.2em;
+    }
+
+    .column h3 {
+        text-align: left;
+        font-size: 1.2em;
+    }
+
+    #socialmedia .fa {
+        font-size: 2em;
+        width: 10%;
+        top: 40%;
+    }
+
+    #socialmedia {
+        top: 17%;
+    }
+
+    #splash #splashtilmeld {
+        width: 55%;
+    }
+
+    #tooltip img,
+    #tooltip2 img,
+    #tooltip3 img,
+    #tooltip4 img,
+    #tooltip5 img,
+    #tooltip6 img {
+        display: none;
+    }
+
+    #infobox {
+        height: 12vh;
+        width: 25vw;
+    }
+
+    #infobox2 {
+        width: 25vw;
+    }
+
+    #infoquote {
+        margin: 0;
+    }
+
+    #kontakter {
+        margin: 0;
+        margin-top: 80px;
+
+    }
+
+    #textfelt input,
+    #textfelt textarea {
+        width: 80vw;
+    }
+
+    #textfelt {
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+
+    #map {
+        margin-top: 60px;
+    }
+
+    #kontaktikoner {
+        margin-top: 100px;
+    }
+
+    #priser {
+        margin: 0;
+        margin-top: 100px;
+
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}

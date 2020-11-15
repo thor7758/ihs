@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>SINGLEVIEW</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="oraleeeee">
+    <nav>
+
+
+        <div class="logo">
+            <div id="ihslogo"><a href="index.html"></a></div>
+        </div>
+
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html"><button class="filter" data-kategori="alle">Forside</button></a>
+            </li>
+            <li>
+                <a href="ophold.html"><button class="filter" data-kategori="alle">Højskole Ophold</button></a>
+            </li>
+            <li>
+                <a href="ihsview.html"><button class="filter" data-kategori="adam">Fag</button></a>
+            </li>
+            <li>
+                <a href="omihs.html"><button class="filter" data-kategori="aslak">Om IHS</button></a>
+            </li>
+            <li>
+                <a href="tilmelding.html"><button class="filter" data-kategori="josephine">Tilmelding</button></a>
+            </li>
+        </ul>
+
+
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <section class="ret" style="border:none;">
+
+        <div id="singleviewz">
+            <div></div>
+            <img src="" alt="">
+            <div class="rightcol">
+                <h2></h2>
+                <p id="short_text"></p>
+                <p id="price"></p>
+                <div id="splashtilmeld">
+                    <a link href="tilmelding.html">TILMELD DIG HER</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <h3>Idrætshøjskolen Sønderborg</h3>
+        <p>Friheds allé 42<br>
+            6400 Sønderborg<br>
+            (+45) 7442 1848<br>
+            CVR 35902619</p>
+        <a href="mailto:info@ihs.dk">INFO@IHS.DK</a>
+        <div id="socialmediafooter">
+            <a href="https://www.facebook.com/IdraetshojskolenSonderborg" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/ihsdk/" class="fa fa-instagram"></a>
+            <a href="https://www.youtube.com/channel/UC3_GXsm6rzkw2L8Ni9p5Vlw?view_as=subscriber" class="fa fa-youtube"></a></div>
+
+    </footer>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let theDish;
+        document.addEventListener("DOMContentLoaded", getTheDish);
+        async function getTheDish() {
+
+            let url = "http://pukproductions.dk/kea/2SEM/tema9/wordpress/wp-json/wp/v2/fag/" + id;
+            let jsonData = await fetch(url);
+            theDish = await jsonData.json();
+            //console.log("LOADING DONE",theDish);
+            //            showDishes();
+
+            document.querySelector("h2").textContent = theDish.title.rendered;
+            document.querySelector("img").src = theDish.billede.guid;
+            document.querySelector("#short_text").textContent = theDish.tekst;
+            document.querySelector(".ret").addEventListener("click", function() {
+                window.history.back();
+
+            });
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+ <!DOCTYPE html>
+ <html lang="DA">
+
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title></title>
+
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="style.css">
+
+ </head>
+
+ <body>
+
+     <nav>
+
+
+         <div class="logo">
+             <div id="ihslogo"><a href="index.html"></a></div>
+         </div>
+
+
+         <ul class="nav-links">
+             <li>
+                 <a href="index.html"><button class="filter" data-kategori="alle">Forside</button></a>
+             </li>
+             <li>
+                 <a href="ophold.html"><button class="filter" data-kategori="alle">Højskole Ophold</button></a>
+             </li>
+             <li>
+                 <a href="ihsview.html"><button class="filter" data-kategori="adam">Fag</button></a>
+             </li>
+             <li>
+                 <a href="omihs.html"><button class="filter" data-kategori="aslak">Om IHS</button></a>
+             </li>
+             <li>
+                 <a href="tilmelding.html"><button class="filter" data-kategori="josephine">Tilmelding</button></a>
+             </li>
+         </ul>
+
+
+
+         <div class="burger">
+             <div class="line1"></div>
+             <div class="line2"></div>
+             <div class="line3"></div>
+         </div>
+     </nav>
+     <section id="tilmelding">
+         <div class="sectionwrapper">
+
+             <div id="container">
+                 <form action="">
+                     <label for="linje">Linje</label>
+                     <select id="country" name="country">
+                         <option value="Forår">Forår 2021 - 24 uger (Jan - Juni)</option>
+                         <option value="Efterår">Efterår 2021 - 21 Uger (Aug - Jan)</option>
+                         <option value="Efterår2">Efterår 2021 - 19 Uger (Aug - Dec)</option>
+                         <option value="Forår2">Forår 2022 - 25 Uger (Jan - Juni)</option>
+                         <option value="Forår3">Forår 2022 - 24 Uger (Jan - Juni)</option>
+                     </select>
+                     <label for="fname">Cpr. Nr.</label>
+                     <input type="text" id="cprnr" name="cprnr" placeholder="">
+                     <label for="Navn">Navn</label>
+                     <input type="text" id="lname" name="lastname" placeholder="">
+                     <label for="fname">Adresse</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Postnummer og By</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Land</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Kommune</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Telefon</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">E-mail</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Din skolegang er endt efter:</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+                     <label for="fname">Hvor har du hørt om os?</label>
+                     <input type="text" id="fname" name="firstname" placeholder="">
+
+                     <label for="subject">Kommentar</label>
+                     <textarea id="subject" name="kommentar" placeholder="" style="height:100px"></textarea>
+
+                     <input type="submit" value="Send din tilmelding" onclick="myTilmelding()">
+                 </form>
+             </div>
+
+         </div>
+
+
+     </section>
+     <footer>
+         <h3>Idrætshøjskolen Sønderborg</h3>
+         <p>Friheds allé 42<br>
+             6400 Sønderborg<br>
+             (+45) 7442 1848<br>
+             CVR 35902619</p>
+         <a href="mailto:info@ihs.dk">INFO@IHS.DK</a>
+         <div id="socialmediafooter">
+             <a href="https://www.facebook.com/IdraetshojskolenSonderborg" class="fa fa-facebook"></a>
+             <a href="https://www.instagram.com/ihsdk/" class="fa fa-instagram"></a>
+             <a href="https://www.youtube.com/channel/UC3_GXsm6rzkw2L8Ni9p5Vlw?view_as=subscriber" class="fa fa-youtube"></a></div>
+
+     </footer>
+     <script>
+         function myTilmelding() {
+             alert("Tak for din tilmelding! Den er nu sendt afsted.");
+         }
+
+     </script>
+     <script src="script.js"></script>
+ </body>
+
+ </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idrætshøjskolen Sønderborg</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+    <nav>
+
+
+        <div class="logo">
+            <div id="ihslogo"><a href="index.html"></a></div>
+        </div>
+
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html"><button class="filter" data-kategori="alle">Forside</button></a>
+            </li>
+            <li>
+                <a href="ophold.html"><button class="filter" data-kategori="alle">Højskole Ophold</button></a>
+            </li>
+            <li>
+                <a href="ihsview.html"><button class="filter" data-kategori="adam">Fag</button></a>
+            </li>
+            <li>
+                <a href="omihs.html"><button class="filter" data-kategori="aslak">Om IHS</button></a>
+            </li>
+            <li>
+                <a href="tilmelding.html"><button class="filter" data-kategori="josephine">Tilmelding</button></a>
+            </li>
+        </ul>
+
+
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+
+    <section class="omihs">
+
+        <template id="ret_tmpl">
+            <div id="retz">
+                <section class="ret">
+                    <h2></h2>
+                    <div></div>
+                    <img src="" alt="">
+                    <p id="short_text"></p>
+                    <p id="price"></p>
+                </section>
+            </div>
+        </template>
+
+    </section>
+
+    <nav class="filter_nav">
+        <h3>Alle</h3>
+    </nav>
+    <!--  Dishes  -->
+    <main class="retter"></main>
+    <footer>
+        <h3>Idrætshøjskolen Sønderborg</h3>
+        <p>Friheds allé 42<br>
+            6400 Sønderborg<br>
+            (+45) 7442 1848<br>
+            CVR 35902619</p>
+        <a href="mailto:info@ihs.dk">INFO@IHS.DK</a>
+        <div id="socialmediafooter">
+            <a href="https://www.facebook.com/IdraetshojskolenSonderborg" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/ihsdk/" class="fa fa-instagram"></a>
+            <a href="https://www.youtube.com/channel/UC3_GXsm6rzkw2L8Ni9p5Vlw?view_as=subscriber" class="fa fa-youtube"></a></div>
+
+    </footer>
+
+
+    <script>
+        "use strict"
+
+
+        let theCategories;
+
+        let theDishes;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            getTheCategories();
+        }
+
+        async function getTheCategories() {
+            let url = "http://pukproductions.dk/kea/2SEM/tema9/wordpress/wp-json/wp/v2/hjskole_kategorier2?per_page=100";
+            let jsonData = await fetch(url);
+            theCategories = await jsonData.json();
+            generateCategoryBTNs();
+
+            getTheDishes();
+
+        }
+
+
+        async function getTheDishes() {
+
+            let url = "http://pukproductions.dk/kea/2SEM/tema9/wordpress/wp-json/wp/v2/omihs?per_page=100";
+            let jsonData = await fetch(url);
+            theDishes = await jsonData.json();
+            console.log("LOADING DONE");
+
+
+            document.querySelector(".filter_nav h3").click();
+        }
+
+
+        function generateCategoryBTNs() {
+
+            let dest = document.querySelector(".filter_nav");
+            let temp = document.querySelector("#filter_btns_tmpl");
+
+
+            document.querySelector(".filter_nav h3").dataset.id = "alle";
+            document.querySelector(".filter_nav h3").addEventListener("click", categoryClick);
+
+
+        }
+
+        function categoryClick() {
+
+            console.log(this.dataset.id);
+
+
+            filterContent(this.dataset.id);
+
+            document.querySelectorAll(".filter_nav h3").forEach(each => each.classList.remove("valgt"));
+            this.classList.add("valgt");
+
+        }
+
+
+        function filterContent(theFilter) {
+
+            let filtrerede;
+            if (theFilter == "alle") {
+                filtrerede = theDishes;
+            } else {
+                filtrerede = theDishes.filter(ret => ret.categories[0] == theFilter);
+
+            }
+            console.log(filtrerede)
+            showPosts(filtrerede);
+        }
+
+        function showPosts(theFilteredJson) {
+            let dest = document.querySelector(".retter");
+            let temp = document.querySelector("#ret_tmpl");
+            dest.innerHTML = "";
+            theFilteredJson.forEach(ret => {
+                //                console.log(ret)
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = ret.title.rendered;
+                klon.querySelector("img").src = ret.billede.guid;
+                klon.querySelector("#short_text").textContent = ret.tekst;
+                klon.querySelector(".ret").addEventListener("click", function() {
+                    dishClick(ret.id)
+                });
+                dest.appendChild(klon);
+
+            });
+
+
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

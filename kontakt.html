@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idrætshøjskolen Sønderborg</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a180751b63.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <nav>
+
+
+        <div class="logo">
+            <div id="ihslogo"><a href="index.html"></a></div>
+        </div>
+
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html"><button class="filter" data-kategori="alle">Højskole Ophold</button></a>
+            </li>
+            <li>
+                <a href="ihsview.html"><button class="filter" data-kategori="adam">Fag</button></a>
+            </li>
+            <li>
+                <a href="omihs.html"><button class="filter" data-kategori="aslak">Om IHS</button></a>
+            </li>
+            <li>
+                <a href="tilmelding.html"><button class="filter" data-kategori="josephine">Tilmelding</button></a>
+            </li>
+        </ul>
+
+
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="kontakt">
+        <div id="kontakter">
+            <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9385.05066379482!2d9.797703842325756!3d54.89686124878453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b339ed66de4daf%3A0x5e09d8a1b16c81c5!2zSWRyw6Z0c2jDuGpza29sZW4gU8O4bmRlcmJvcmc!5e0!3m2!1sen!2sdk!4v1605263917665!5m2!1sen!2sdk" width="500" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+            <div id="textfelt">
+                <div class="container">
+                    <h3>Kontakt os her</h3>
+                    <form action="">
+                        <label for="fname">Navn</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Fornavn..">
+
+                        <label for="lname">Efternavn</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Efternavn..">
+
+                        <label for="subject">Mail</label>
+                        <textarea id="subject" name="subject" placeholder="Hvad drejer det sig om?" style="height:200px"></textarea>
+
+                        <input type="submit" value="Send" onclick="myKontakt();">
+                    </form>
+                </div>
+            </div>
+            <div id="socialmediakon">
+                <a href="https://www.facebook.com/IdraetshojskolenSonderborg" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/ihsdk/" class="fa fa-instagram"></a>
+                <a href="https://www.youtube.com/channel/UC3_GXsm6rzkw2L8Ni9p5Vlw?view_as=subscriber" class="fa fa-youtube"></a></div>
+        </div>
+
+
+
+
+        <div id="kontaktikoner">
+            <div id="tlfs"><i class="fas fa-phone"></i>
+                <p>(+45) 74 42 18 48</p>
+            </div>
+            <div id="emailz">
+                <i class="fas fa-envelope-open-text"></i>
+                <p>INFO@IHS.DK</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <h3>Idrætshøjskolen Sønderborg</h3>
+        <p>Friheds allé 42<br>
+            6400 Sønderborg<br>
+            (+45) 7442 1848<br>
+            CVR 35902619</p>
+        <a href="mailto:info@ihs.dk">INFO@IHS.DK</a>
+        <div id="socialmediafooter">
+            <a href="https://www.facebook.com/IdraetshojskolenSonderborg" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/ihsdk/" class="fa fa-instagram"></a>
+            <a href="https://www.youtube.com/channel/UC3_GXsm6rzkw2L8Ni9p5Vlw?view_as=subscriber" class="fa fa-youtube"></a></div>
+
+    </footer>
+
+    <script>
+        function myKontakt() {
+            alert("Tak for din mail, vi vender tilbage hurtigst muligt.");
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
