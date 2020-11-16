@@ -24,7 +24,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    color: #000000;
     position: fixed;
     left: 0;
     top: 0;
@@ -33,7 +33,6 @@ nav {
     min-height: 8vh;
     z-index: 6;
     height: 80px;
-
 }
 
 
@@ -58,7 +57,7 @@ nav {
 
 .nav-links li {
     list-style: none;
-    padding: 45px;
+    padding: 2px;
     opacity: 0;
 }
 
@@ -70,10 +69,8 @@ nav {
     letter-spacing: 1.5px;
     font-size: 20px;
     font-weight: bold;
+    height: 10vh;
 }
-
-
-
 
 
 .burger {
@@ -169,20 +166,20 @@ i {
     background-size: cover;
     display: flex;
     position: relative;
-    height: 80px;
-    width: 140px;
+    height: 100px;
+    width: 180px;
     left: 0;
     z-index: 6;
-
+    margin-top: 14px;
 }
 
 
 #splashbaggrund {
     width: 100vw;
     height: 56.25vw;
-    background-image: url(IHSbaggrund.png);
+    background-image: url(ihslys.png);
     background-size: cover;
-    background-position: 50% 90%;
+    background-position: 50% 50%;
     max-width: none;
     min-width: 70%;
     top: -10;
@@ -242,6 +239,17 @@ i {
 #splash #splashtilmeld a:hover:after {
     width: 100%;
     left: 0;
+}
+
+#arrowdown {
+    font-size: 1.2em;
+    color: white;
+    display: flex;
+    position: absolute;
+    left: 48vw;
+    top: 91vh;
+    opacity: 0.7;
+    z-index: 3;
 }
 
 #tooltip img,
@@ -1222,5 +1230,9 @@ footer h3 {
 
     footer {
         flex-direction: column;
+    }
+
+    #arrowdown {
+        display: none;
     }
 }
